@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 860" role="img" aria-label="시스템 아키텍처">
+  <defs>
+    <marker id="ah-blue" markerWidth="11" markerHeight="11" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#0066cc"/></marker>
+    <marker id="ah-orange" markerWidth="10" markerHeight="10" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L9,4.5 L0,9 Z" fill="#ff8c00"/></marker>
+    <marker id="ah-purple" markerWidth="11" markerHeight="11" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#6b46c1"/></marker>
+    <marker id="ah-green" markerWidth="11" markerHeight="11" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#28a745"/></marker>
+    <marker id="ah-red" markerWidth="11" markerHeight="11" refX="8.5" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#dc143c"/></marker>
+    <style>
+      svg { background: transparent; --c-online-f:#d8f0de; --c-online-s:#28a745; --c-offline-f:#e6f2ff; --c-offline-s:#2b7cd3; --c-shared-f:#fff4d6; --c-shared-s:#e0a200; --c-user-f:#ffd0d8; --c-user-s:#dc143c; --c-decision-f:#ece1ff; --c-decision-s:#6b46c1; --c-fallback-f:#ffe5b4; --c-fallback-s:#ff8c00; --c-data-f:#e0efff; --c-data-s:#0066cc; --c-llm-f:#e6d9ff; --c-llm-s:#7c3aed; --c-neutral-f:#eef1f5; --c-neutral-s:#7a8aa0; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill:#1a1916; font-size:14px; }
+      .box{stroke-width:2}.online{fill:var(--c-online-f);stroke:var(--c-online-s)}.offline{fill:var(--c-offline-f);stroke:var(--c-offline-s)}.shared{fill:var(--c-shared-f);stroke:var(--c-shared-s)}.user{fill:var(--c-user-f);stroke:var(--c-user-s)}.decision{fill:var(--c-decision-f);stroke:var(--c-decision-s)}.fallback{fill:var(--c-fallback-f);stroke:var(--c-fallback-s);stroke-dasharray:6 3}.data{fill:var(--c-data-f);stroke:var(--c-data-s)}.llm{fill:var(--c-llm-f);stroke:var(--c-llm-s)}.neutral{fill:var(--c-neutral-f);stroke:var(--c-neutral-s)}
+      .z-green{fill:#eff9f1;stroke:#9bd3a8;stroke-width:1.5}.z-blue{fill:#eff6ff;stroke:#a9cdf0;stroke-width:1.5}.z-yellow{fill:#fff9ec;stroke:#ecd28a;stroke-width:1.5}.z-red{fill:#fff1f2;stroke:#f0b3ba;stroke-width:1.5}.z-grey{fill:#f6f7f9;stroke:#cfd6e0;stroke-width:1.5;stroke-dasharray:7 4}
+      .zlab{font-weight:600;fill:#42506a;font-size:14px}.t-title{font-weight:600}.t-code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}.t-sm{font-size:12px;fill:#5a6b80}.t-xs{font-size:11px;fill:#6a7b90}
+      .flow{fill:none;stroke:#0066cc;stroke-width:2.4}.flow.fb{stroke:#ff8c00;stroke-width:2;stroke-dasharray:6 3}.flow.data{stroke:#0066cc;stroke-width:1.5;stroke-dasharray:5 3}.flow.route{stroke:#6b46c1;stroke-width:2.2}
+      .flow-lbl{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:12px;fill:#0a4a8a;font-weight:500}.flow-lbl.r{fill:#6b46c1}.flow-lbl.o{fill:#c2700a}.flow-lbl.bg{paint-order:stroke;stroke:#fcfcf8;stroke-width:5px;stroke-linejoin:round}
+    </style>
+  </defs>
+        <!-- RN app -->
+        <rect class="box user" x="430" y="28" width="320" height="62" rx="11"/>
+        <text class="t-title" x="590" y="54" text-anchor="middle">React Native 앱</text>
+        <text class="t-sm" x="590" y="74" text-anchor="middle">iOS · Android</text>
+        <!-- edge RN->nginx -->
+        <path class="flow" d="M590,90 L590,150" marker-end="url(#ah-blue)"/>
+        <text class="flow-lbl bg" x="600" y="124" >HTTPS · REST/JSON</text>
+        <!-- nginx -->
+        <rect class="box neutral" x="470" y="152" width="240" height="50" rx="9"/>
+        <text class="t-title" x="590" y="182" text-anchor="middle">Reverse Proxy (Nginx)</text>
+        <!-- edge nginx->spring -->
+        <path class="flow" d="M590,202 L590,250" marker-end="url(#ah-blue)"/>
+
+        <!-- Spring zone -->
+        <rect class="z-blue" x="80" y="252" width="610" height="300" rx="12"/>
+        <text class="zlab" x="100" y="276">Spring Boot 메인 백엔드 (Docker)</text>
+        <rect class="box offline" x="104" y="296" width="178" height="58" rx="9"/>
+        <text x="193" y="320" text-anchor="middle" font-size="13">인증 · 인가</text>
+        <text class="t-sm" x="193" y="338" text-anchor="middle">JWT / 세션</text>
+        <rect class="box offline" x="296" y="296" width="178" height="58" rx="9"/>
+        <text x="385" y="320" text-anchor="middle" font-size="13">프로필 · 이수과목</text>
+        <text class="t-sm" x="385" y="338" text-anchor="middle">CRUD</text>
+        <rect class="box offline" x="488" y="296" width="178" height="58" rx="9"/>
+        <text x="577" y="320" text-anchor="middle" font-size="13">추천 결과 API</text>
+        <text class="t-sm" x="577" y="338" text-anchor="middle">/recommendations</text>
+        <rect class="box offline" x="104" y="368" width="178" height="58" rx="9"/>
+        <text x="193" y="392" text-anchor="middle" font-size="13">챗봇 메시지</text>
+        <text class="t-sm" x="193" y="410" text-anchor="middle">히스토리 · 피드백</text>
+        <rect class="box offline" x="296" y="368" width="370" height="58" rx="9"/>
+        <text x="481" y="392" text-anchor="middle" font-size="13">학사 데이터 연동 · 트랙/직무/과목 조회</text>
+        <text class="t-sm" x="481" y="410" text-anchor="middle">트랜잭션 · 도메인 비즈니스 로직</text>
+        <rect class="box shared" x="104" y="440" width="562" height="44" rx="8"/>
+        <text x="385" y="467" text-anchor="middle" font-size="13">응답 캐싱 — DB 1주 TTL (중복 LLM 호출 방지)</text>
+        <text class="t-sm" x="385" y="520" text-anchor="middle">앱과 직접 통신하는 유일한 백엔드</text>
+
+        <!-- RDS cylinder -->
+        <g>
+          <path class="data" d="M14,330 a30,9 0 0 1 60,0 v92 a30,9 0 0 1 -60,0 z"/>
+          <path class="data" d="M14,330 a30,9 0 0 0 60,0" fill="none"/>
+          <text class="t-sm" x="44" y="384" text-anchor="middle" font-size="11">RDS</text>
+          <text class="t-sm" x="44" y="400" text-anchor="middle" font-size="11">MySQL</text>
+        </g>
+        <path class="flow" d="M74,378 L104,378" marker-end="url(#ah-blue)"/>
+        <path class="flow" d="M104,396 L74,396" marker-end="url(#ah-blue)"/>
+
+        <!-- FastAPI zone -->
+        <rect class="z-yellow" x="730" y="252" width="380" height="300" rx="12"/>
+        <text class="zlab" x="750" y="276">FastAPI · AI 중계 (Docker)</text>
+        <rect class="box shared" x="752" y="298" width="336" height="56" rx="9"/>
+        <text class="t-code" x="920" y="322" text-anchor="middle" font-size="13">POST /api/v1/ai/recommend</text>
+        <text class="t-sm" x="920" y="340" text-anchor="middle">추천 파이프라인 호출</text>
+        <rect class="box shared" x="752" y="368" width="336" height="56" rx="9"/>
+        <text class="t-code" x="920" y="392" text-anchor="middle" font-size="13">POST /api/v1/chatbot</text>
+        <text class="t-sm" x="920" y="410" text-anchor="middle">챗봇 그래프 호출</text>
+        <rect class="box fallback" x="752" y="438" width="336" height="46" rx="8"/>
+        <text x="920" y="466" text-anchor="middle" font-size="12.5">앱과 직접 통신 X — Spring 내부 호출만</text>
+
+        <!-- Spring -> FastAPI edge -->
+        <path class="flow" d="M690,366 L730,366" marker-end="url(#ah-blue)"/>
+        <text class="flow-lbl bg" x="710" y="348" text-anchor="middle">내부 인증</text>
+        <text class="flow-lbl bg t-code" x="710" y="396" text-anchor="middle" font-size="10.5">X-Internal-Token</text>
+        <text class="flow-lbl bg t-code" x="710" y="410" text-anchor="middle" font-size="10.5">X-User-Id</text>
+
+        <!-- FastAPI -> AI zone -->
+        <path class="flow" d="M920,552 L920,602" marker-end="url(#ah-blue)"/>
+
+        <!-- AI engine zone -->
+        <rect class="z-red" x="80" y="604" width="1030" height="218" rx="12"/>
+        <text class="zlab" x="100" y="628">LangGraph + RAGFlow — AI 엔진 (Python)</text>
+        <rect class="box online" x="120" y="650" width="400" height="120" rx="11"/>
+        <text class="t-title" x="320" y="690" text-anchor="middle">추천 파이프라인</text>
+        <text x="320" y="712" text-anchor="middle" font-size="13">LangGraph 7노드 워크플로</text>
+        <text class="t-sm" x="320" y="734" text-anchor="middle">§2 참조</text>
+        <rect class="box online" x="548" y="650" width="300" height="120" rx="11"/>
+        <text class="t-title" x="698" y="690" text-anchor="middle">챗봇 그래프</text>
+        <text x="698" y="712" text-anchor="middle" font-size="13">3노드 · 의도 분기</text>
+        <text class="t-sm" x="698" y="734" text-anchor="middle">§3 참조</text>
+        <!-- RAGFlow KB cylinder -->
+        <g>
+          <path class="data" d="M884,648 a78,14 0 0 1 156,0 v104 a78,14 0 0 1 -156,0 z"/>
+          <path class="data" d="M884,648 a78,14 0 0 0 156,0" fill="none"/>
+          <text class="t-title" x="962" y="694" text-anchor="middle" font-size="13">RAGFlow</text>
+          <text x="962" y="714" text-anchor="middle" font-size="12">LightRAG KB</text>
+          <text class="t-sm" x="962" y="732" text-anchor="middle">§4 사전 구축</text>
+        </g>
+        <!-- AI internal edges -->
+        <path class="flow" d="M520,710 L548,710" marker-end="url(#ah-blue)"/>
+        <path class="flow data" d="M884,700 L848,700" marker-end="url(#ah-blue)"/>
+        <path class="flow data" d="M884,724 L520,748 L320,748 L320,770" marker-end="url(#ah-blue)"/>
+        <text class="flow-lbl bg" x="600" y="764" text-anchor="middle">관계 탐색 · 근거 검색</text>
+      </svg>
